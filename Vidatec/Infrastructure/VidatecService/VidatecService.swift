@@ -6,21 +6,22 @@ protocol VidatecServiceType {
     func getPeoples() -> AnyPublisher<[People], VidatecService.Error>
 }
 
-final public class VidatecService {
+public class VidatecService: VidatecServiceType {
     
     // MARK: - Properties
     /// Session
     fileprivate let session: URLSession
     
     /// A shared JSON decoder to use in calls.
-    private let decoder = JSONDecoder()
+    let decoder: JSONDecoder
     
     /// Session Queue
     private let apiQueue = DispatchQueue(label: "VidatecService", qos: .default, attributes: .concurrent)
     private static let baseHost = "5cc736f4ae1431001472e333.mockapi.io/api/v1"
     
-    public init(session: URLSession = URLSession.shared) {
+    public init(session: URLSession = .shared, decoder: JSONDecoder = .init()) {
         self.session = session
+        self.decoder = decoder
     }
     
     /// MARK: Network Errors.
@@ -32,6 +33,7 @@ final public class VidatecService {
         case addressUnreachable(URL)
         case invalidResponse
         case decoding
+        case stubData
         
         public var errorDescription: String? {
             switch self {
@@ -40,6 +42,7 @@ final public class VidatecService {
             case .decoding: return "Some decoding error occured"
             case .networkResponse(let error): return error.localizedDescription
             case .unknownNetwork: return "Some unknown network error occured"
+            case .stubData: return "Stub data error occured"
             }
         }
     }
@@ -76,11 +79,19 @@ final public class VidatecService {
         }
         
     }
+    
+    func getRooms() -> AnyPublisher<[Room], VidatecService.Error> {
+        executeRequest(url: VidatecService.EndPoint.getRooms.url)
+    }
+    
+    func getPeoples() -> AnyPublisher<[People], VidatecService.Error> {
+        executeRequest(url: VidatecService.EndPoint.getPeoples.url)
+    }
 }
 
-extension VidatecService: VidatecServiceType {
+extension VidatecService {
     
-    private func executeRequest<T: Decodable>(urlRequest: URLRequest) -> AnyPublisher<T, VidatecService.Error> {
+    func executeRequest<T: Decodable>(urlRequest: URLRequest) -> AnyPublisher<T, VidatecService.Error> {
         return session.dataTaskPublisher(for: urlRequest)
             .receive(on: apiQueue)
             .tryMap { data, response -> Data in
@@ -112,7 +123,7 @@ extension VidatecService: VidatecServiceType {
             .eraseToAnyPublisher()
     }
     
-    private func executeRequest<T: Decodable>(url: URL) -> AnyPublisher<T, VidatecService.Error> {
+    func executeRequest<T: Decodable>(url: URL) -> AnyPublisher<T, VidatecService.Error> {
         return session.dataTaskPublisher(for: url)
             .receive(on: apiQueue)
             .tryMap { data, response -> Data in
@@ -141,12 +152,12 @@ extension VidatecService: VidatecServiceType {
             .eraseToAnyPublisher()
     }
     
-    func getRooms() -> AnyPublisher<[Room], VidatecService.Error> {
-        executeRequest(url: VidatecService.EndPoint.getRooms.url)
-    }
-    
-    func getPeoples() -> AnyPublisher<[People], VidatecService.Error> {
-        executeRequest(url: VidatecService.EndPoint.getPeoples.url)
+    func stubbedResponse(_ filename: String) -> Data! {
+        @objc class TestClass: NSObject { }
+        
+        let bundle = Bundle(for: TestClass.self)
+        let path = bundle.path(forResource: filename, ofType: "json")
+        return (try? Data(contentsOf: URL(fileURLWithPath: path!)))
     }
 }
 

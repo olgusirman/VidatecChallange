@@ -32,6 +32,7 @@
 		C99281C825AB90B600BEADC6 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281C725AB90B600BEADC6 /* Font+.swift */; };
 		C99281CD25AB90CD00BEADC6 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281CC25AB90CD00BEADC6 /* Color+.swift */; };
 		C99281D225AB90DE00BEADC6 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281D125AB90DE00BEADC6 /* CGFloat+.swift */; };
+		C99281DA25AB9CB100BEADC6 /* VidatecMockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281D925AB9CB100BEADC6 /* VidatecMockService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		C99281C725AB90B600BEADC6 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		C99281CC25AB90CD00BEADC6 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		C99281D125AB90DE00BEADC6 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
+		C99281D925AB9CB100BEADC6 /* VidatecMockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VidatecMockService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				C992818D25AB468500BEADC6 /* VidatecService.swift */,
+				C99281D925AB9CB100BEADC6 /* VidatecMockService.swift */,
 			);
 			path = VidatecService;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				C91D404525AA5EDB00045F95 /* Persistence.swift in Sources */,
 				C99281D225AB90DE00BEADC6 /* CGFloat+.swift in Sources */,
 				C99281AF25AB4BB100BEADC6 /* SearchBar.swift in Sources */,
+				C99281DA25AB9CB100BEADC6 /* VidatecMockService.swift in Sources */,
 				C99281A625AB4AD700BEADC6 /* UI+.swift in Sources */,
 				C91D403E25AA5EDA00045F95 /* ContentView.swift in Sources */,
 				C91D403C25AA5EDA00045F95 /* VidatecApp.swift in Sources */,
