@@ -15,6 +15,10 @@
 		C91D404825AA5EDB00045F95 /* Vidatec.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91D404625AA5EDB00045F95 /* Vidatec.xcdatamodeld */; };
 		C91D405325AA5EDB00045F95 /* VidatecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D405225AA5EDB00045F95 /* VidatecTests.swift */; };
 		C91D405E25AA5EDB00045F95 /* VidatecUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D405D25AA5EDB00045F95 /* VidatecUITests.swift */; };
+		C992815525AB3C2D00BEADC6 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992815425AB3C2D00BEADC6 /* AppTabNavigation.swift */; };
+		C992815F25AB3C7100BEADC6 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992815E25AB3C7100BEADC6 /* PeopleView.swift */; };
+		C992816725AB3CA600BEADC6 /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992816625AB3CA600BEADC6 /* RoomsView.swift */; };
+		C992816C25AB3D9A00BEADC6 /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992816B25AB3D9A00BEADC6 /* AppSidebarNavigation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		C91D405925AA5EDB00045F95 /* VidatecUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VidatecUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91D405D25AA5EDB00045F95 /* VidatecUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VidatecUITests.swift; sourceTree = "<group>"; };
 		C91D405F25AA5EDB00045F95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C992815425AB3C2D00BEADC6 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
+		C992815E25AB3C7100BEADC6 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
+		C992816625AB3CA600BEADC6 /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
+		C992816B25AB3D9A00BEADC6 /* AppSidebarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSidebarNavigation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,8 @@
 		C91D403A25AA5EDA00045F95 /* Vidatec */ = {
 			isa = PBXGroup;
 			children = (
+				C992814E25AB3BC500BEADC6 /* Screens */,
+				C992814D25AB3BC000BEADC6 /* Infrastructure */,
 				C91D403B25AA5EDA00045F95 /* VidatecApp.swift */,
 				C91D403D25AA5EDA00045F95 /* ContentView.swift */,
 				C91D403F25AA5EDB00045F95 /* Assets.xcassets */,
@@ -134,6 +144,56 @@
 				C91D405F25AA5EDB00045F95 /* Info.plist */,
 			);
 			path = VidatecUITests;
+			sourceTree = "<group>";
+		};
+		C992814D25AB3BC000BEADC6 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		C992814E25AB3BC500BEADC6 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C992815D25AB3C5F00BEADC6 /* Rooms */,
+				C992815C25AB3C5500BEADC6 /* People */,
+				C992815325AB3C0100BEADC6 /* AppSidebarNavigation */,
+				C992815225AB3BF800BEADC6 /* AppTabNavigation */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C992815225AB3BF800BEADC6 /* AppTabNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				C992815425AB3C2D00BEADC6 /* AppTabNavigation.swift */,
+			);
+			path = AppTabNavigation;
+			sourceTree = "<group>";
+		};
+		C992815325AB3C0100BEADC6 /* AppSidebarNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				C992816B25AB3D9A00BEADC6 /* AppSidebarNavigation.swift */,
+			);
+			path = AppSidebarNavigation;
+			sourceTree = "<group>";
+		};
+		C992815C25AB3C5500BEADC6 /* People */ = {
+			isa = PBXGroup;
+			children = (
+				C992815E25AB3C7100BEADC6 /* PeopleView.swift */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		C992815D25AB3C5F00BEADC6 /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				C992816625AB3CA600BEADC6 /* RoomsView.swift */,
+			);
+			path = Rooms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +325,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C992816C25AB3D9A00BEADC6 /* AppSidebarNavigation.swift in Sources */,
 				C91D404825AA5EDB00045F95 /* Vidatec.xcdatamodeld in Sources */,
 				C91D404525AA5EDB00045F95 /* Persistence.swift in Sources */,
 				C91D403E25AA5EDA00045F95 /* ContentView.swift in Sources */,
 				C91D403C25AA5EDA00045F95 /* VidatecApp.swift in Sources */,
+				C992816725AB3CA600BEADC6 /* RoomsView.swift in Sources */,
+				C992815525AB3C2D00BEADC6 /* AppTabNavigation.swift in Sources */,
+				C992815F25AB3C7100BEADC6 /* PeopleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

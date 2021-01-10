@@ -15,6 +15,8 @@ struct VidatecApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }.commands {
+            SidebarCommands()
         }
     }
 }
