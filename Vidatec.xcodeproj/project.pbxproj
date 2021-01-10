@@ -19,6 +19,19 @@
 		C992815F25AB3C7100BEADC6 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992815E25AB3C7100BEADC6 /* PeopleView.swift */; };
 		C992816725AB3CA600BEADC6 /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992816625AB3CA600BEADC6 /* RoomsView.swift */; };
 		C992816C25AB3D9A00BEADC6 /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992816B25AB3D9A00BEADC6 /* AppSidebarNavigation.swift */; };
+		C992818F25AB468500BEADC6 /* rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = C992818725AB468500BEADC6 /* rooms.json */; };
+		C992819025AB468500BEADC6 /* people.json in Resources */ = {isa = PBXBuildFile; fileRef = C992818825AB468500BEADC6 /* people.json */; };
+		C992819125AB468500BEADC6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992818A25AB468500BEADC6 /* Person.swift */; };
+		C992819225AB468500BEADC6 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992818B25AB468500BEADC6 /* Room.swift */; };
+		C992819325AB468500BEADC6 /* VidatecService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992818D25AB468500BEADC6 /* VidatecService.swift */; };
+		C992819A25AB483300BEADC6 /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992819925AB483300BEADC6 /* CodableHelper.swift */; };
+		C99281A625AB4AD700BEADC6 /* UI+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281A525AB4AD700BEADC6 /* UI+.swift */; };
+		C99281AF25AB4BB100BEADC6 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281AE25AB4BB100BEADC6 /* SearchBar.swift */; };
+		C99281BE25AB904200BEADC6 /* Formatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281BD25AB904200BEADC6 /* Formatter+.swift */; };
+		C99281C325AB907800BEADC6 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281C225AB907800BEADC6 /* BlurView.swift */; };
+		C99281C825AB90B600BEADC6 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281C725AB90B600BEADC6 /* Font+.swift */; };
+		C99281CD25AB90CD00BEADC6 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281CC25AB90CD00BEADC6 /* Color+.swift */; };
+		C99281D225AB90DE00BEADC6 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281D125AB90DE00BEADC6 /* CGFloat+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +70,19 @@
 		C992815E25AB3C7100BEADC6 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		C992816625AB3CA600BEADC6 /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
 		C992816B25AB3D9A00BEADC6 /* AppSidebarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSidebarNavigation.swift; sourceTree = "<group>"; };
+		C992818725AB468500BEADC6 /* rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms.json; sourceTree = "<group>"; };
+		C992818825AB468500BEADC6 /* people.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = people.json; sourceTree = "<group>"; };
+		C992818A25AB468500BEADC6 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		C992818B25AB468500BEADC6 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		C992818D25AB468500BEADC6 /* VidatecService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VidatecService.swift; sourceTree = "<group>"; };
+		C992819925AB483300BEADC6 /* CodableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
+		C99281A525AB4AD700BEADC6 /* UI+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+.swift"; sourceTree = "<group>"; };
+		C99281AE25AB4BB100BEADC6 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		C99281BD25AB904200BEADC6 /* Formatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+.swift"; sourceTree = "<group>"; };
+		C99281C225AB907800BEADC6 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		C99281C725AB90B600BEADC6 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
+		C99281CC25AB90CD00BEADC6 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		C99281D125AB90DE00BEADC6 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +175,11 @@
 		C992814D25AB3BC000BEADC6 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				C99281AD25AB4BAA00BEADC6 /* Controls */,
+				C99281A425AB4AD000BEADC6 /* Extensions */,
+				C992818625AB468500BEADC6 /* Mocks */,
+				C992818925AB468500BEADC6 /* Models */,
+				C992818C25AB468500BEADC6 /* VidatecService */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -194,6 +225,62 @@
 				C992816625AB3CA600BEADC6 /* RoomsView.swift */,
 			);
 			path = Rooms;
+			sourceTree = "<group>";
+		};
+		C992818625AB468500BEADC6 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C992818725AB468500BEADC6 /* rooms.json */,
+				C992818825AB468500BEADC6 /* people.json */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		C992818925AB468500BEADC6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C992819825AB482000BEADC6 /* Helper */,
+				C992818A25AB468500BEADC6 /* Person.swift */,
+				C992818B25AB468500BEADC6 /* Room.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C992818C25AB468500BEADC6 /* VidatecService */ = {
+			isa = PBXGroup;
+			children = (
+				C992818D25AB468500BEADC6 /* VidatecService.swift */,
+			);
+			path = VidatecService;
+			sourceTree = "<group>";
+		};
+		C992819825AB482000BEADC6 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C992819925AB483300BEADC6 /* CodableHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C99281A425AB4AD000BEADC6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C99281A525AB4AD700BEADC6 /* UI+.swift */,
+				C99281BD25AB904200BEADC6 /* Formatter+.swift */,
+				C99281C725AB90B600BEADC6 /* Font+.swift */,
+				C99281CC25AB90CD00BEADC6 /* Color+.swift */,
+				C99281D125AB90DE00BEADC6 /* CGFloat+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C99281AD25AB4BAA00BEADC6 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				C99281AE25AB4BB100BEADC6 /* SearchBar.swift */,
+				C99281C225AB907800BEADC6 /* BlurView.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +386,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C992819025AB468500BEADC6 /* people.json in Resources */,
 				C91D404325AA5EDB00045F95 /* Preview Assets.xcassets in Resources */,
 				C91D404025AA5EDB00045F95 /* Assets.xcassets in Resources */,
+				C992818F25AB468500BEADC6 /* rooms.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,14 +414,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C992819125AB468500BEADC6 /* Person.swift in Sources */,
 				C992816C25AB3D9A00BEADC6 /* AppSidebarNavigation.swift in Sources */,
 				C91D404825AA5EDB00045F95 /* Vidatec.xcdatamodeld in Sources */,
 				C91D404525AA5EDB00045F95 /* Persistence.swift in Sources */,
+				C99281D225AB90DE00BEADC6 /* CGFloat+.swift in Sources */,
+				C99281AF25AB4BB100BEADC6 /* SearchBar.swift in Sources */,
+				C99281A625AB4AD700BEADC6 /* UI+.swift in Sources */,
 				C91D403E25AA5EDA00045F95 /* ContentView.swift in Sources */,
 				C91D403C25AA5EDA00045F95 /* VidatecApp.swift in Sources */,
 				C992816725AB3CA600BEADC6 /* RoomsView.swift in Sources */,
+				C992819A25AB483300BEADC6 /* CodableHelper.swift in Sources */,
+				C99281BE25AB904200BEADC6 /* Formatter+.swift in Sources */,
+				C99281CD25AB90CD00BEADC6 /* Color+.swift in Sources */,
+				C99281C825AB90B600BEADC6 /* Font+.swift in Sources */,
+				C992819325AB468500BEADC6 /* VidatecService.swift in Sources */,
+				C99281C325AB907800BEADC6 /* BlurView.swift in Sources */,
 				C992815525AB3C2D00BEADC6 /* AppTabNavigation.swift in Sources */,
 				C992815F25AB3C7100BEADC6 /* PeopleView.swift in Sources */,
+				C992819225AB468500BEADC6 /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

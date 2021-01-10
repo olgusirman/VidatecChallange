@@ -18,6 +18,8 @@ struct AppTabNavigation: View {
         TabView(selection: $selection) {
             NavigationView {
                 PeopleView()
+                    .resignKeyboardOnDragGesture()
+                    .navigationBarTitle("People")
             }
             .tabItem {
                 peopleTabLabel
@@ -27,6 +29,7 @@ struct AppTabNavigation: View {
             NavigationView {
                 RoomsView()
                     .environment(\.managedObjectContext, viewContext)
+                    .navigationBarTitle("Rooms")
             }
             .tabItem {
                 roomsTabLabel

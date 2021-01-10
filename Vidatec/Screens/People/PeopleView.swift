@@ -8,9 +8,33 @@
 import SwiftUI
 
 struct PeopleView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+    private var peoples = Person.persons
+    
+    @State private var searchText = ""
+    
+    var filteredPersons: [Person] {
+        peoples.filter({ searchText.isEmpty ? true : $0.firstName!.contains(searchText) })
     }
+    
+    var body: some View {
+        ScrollView {
+            LazyVStack (alignment: .leading) {
+                SearchBar(text: $searchText)
+                
+                if filteredPersons.count == 0 {
+                    Text("Sorry, No results")
+                } else {
+                    ForEach(filteredPersons) { item in
+                        Text(item.firstName ?? "")
+                        Divider()
+                    }
+                }
+                
+            }.padding([.horizontal])
+        }
+    }
+    
 }
 
 struct PeopleView_Previews: PreviewProvider {
