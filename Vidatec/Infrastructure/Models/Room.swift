@@ -89,3 +89,12 @@ extension Array where Element == Rooms.Element {
         return String(data: try self.jsonData(), encoding: encoding)
     }
 }
+
+extension Room {
+    
+    static private let mockRoom1 = Room(id: "1", createdAt: "2019-04-29T03:44:45.496Z", name: "pixel", isOccupied: false)
+    static private let mockRoom2 = Room(id: "2", createdAt: "2019-04-29T16:00:04.266Z", name: "port", isOccupied: true)
+    
+    static var mockRooms = [mockRoom1, mockRoom2]
+    
+}

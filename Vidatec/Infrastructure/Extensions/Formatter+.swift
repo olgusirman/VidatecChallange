@@ -13,14 +13,21 @@ let longFormatter: DateFormatter = {
     return formatter
 }()
 
-let taskFormatter: DateFormatter = {
+let defaultTimeFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "EEEE, HH:mm"
     return formatter
 }()
 
-let taskAlertFormatter: DateFormatter = {
+let hourFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "HH:mm"
+    return formatter
+}()
+
+private let shortMediumFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    formatter.timeStyle = .medium
     return formatter
 }()

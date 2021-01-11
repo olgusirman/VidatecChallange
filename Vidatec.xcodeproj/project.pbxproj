@@ -33,6 +33,10 @@
 		C99281CD25AB90CD00BEADC6 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281CC25AB90CD00BEADC6 /* Color+.swift */; };
 		C99281D225AB90DE00BEADC6 /* CGFloat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281D125AB90DE00BEADC6 /* CGFloat+.swift */; };
 		C99281DA25AB9CB100BEADC6 /* VidatecMockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281D925AB9CB100BEADC6 /* VidatecMockService.swift */; };
+		C99281E225ABAAFB00BEADC6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281E125ABAAFB00BEADC6 /* ProfileView.swift */; };
+		C99281E725ABB0DD00BEADC6 /* Image+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281E625ABB0DD00BEADC6 /* Image+.swift */; };
+		C99281EC25ABB3FF00BEADC6 /* PeopleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281EB25ABB3FF00BEADC6 /* PeopleListView.swift */; };
+		C99281F125ABB98100BEADC6 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99281F025ABB98100BEADC6 /* VisualEffectBlur.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		C99281CC25AB90CD00BEADC6 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		C99281D125AB90DE00BEADC6 /* CGFloat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+.swift"; sourceTree = "<group>"; };
 		C99281D925AB9CB100BEADC6 /* VidatecMockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VidatecMockService.swift; sourceTree = "<group>"; };
+		C99281E125ABAAFB00BEADC6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C99281E625ABB0DD00BEADC6 /* Image+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+.swift"; sourceTree = "<group>"; };
+		C99281EB25ABB3FF00BEADC6 /* PeopleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListView.swift; sourceTree = "<group>"; };
+		C99281F025ABB98100BEADC6 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +197,7 @@
 		C992814E25AB3BC500BEADC6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C99281E025ABAAF200BEADC6 /* Profile */,
 				C992815D25AB3C5F00BEADC6 /* Rooms */,
 				C992815C25AB3C5500BEADC6 /* People */,
 				C992815325AB3C0100BEADC6 /* AppSidebarNavigation */,
@@ -217,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				C992815E25AB3C7100BEADC6 /* PeopleView.swift */,
+				C99281EB25ABB3FF00BEADC6 /* PeopleListView.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -273,6 +283,7 @@
 				C99281C725AB90B600BEADC6 /* Font+.swift */,
 				C99281CC25AB90CD00BEADC6 /* Color+.swift */,
 				C99281D125AB90DE00BEADC6 /* CGFloat+.swift */,
+				C99281E625ABB0DD00BEADC6 /* Image+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,8 +293,17 @@
 			children = (
 				C99281AE25AB4BB100BEADC6 /* SearchBar.swift */,
 				C99281C225AB907800BEADC6 /* BlurView.swift */,
+				C99281F025ABB98100BEADC6 /* VisualEffectBlur.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		C99281E025ABAAF200BEADC6 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C99281E125ABAAFB00BEADC6 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,11 +452,15 @@
 				C99281BE25AB904200BEADC6 /* Formatter+.swift in Sources */,
 				C99281CD25AB90CD00BEADC6 /* Color+.swift in Sources */,
 				C99281C825AB90B600BEADC6 /* Font+.swift in Sources */,
+				C99281F125ABB98100BEADC6 /* VisualEffectBlur.swift in Sources */,
 				C992819325AB468500BEADC6 /* VidatecService.swift in Sources */,
 				C99281C325AB907800BEADC6 /* BlurView.swift in Sources */,
 				C992815525AB3C2D00BEADC6 /* AppTabNavigation.swift in Sources */,
 				C992815F25AB3C7100BEADC6 /* PeopleView.swift in Sources */,
+				C99281EC25ABB3FF00BEADC6 /* PeopleListView.swift in Sources */,
+				C99281E225ABAAFB00BEADC6 /* ProfileView.swift in Sources */,
 				C992819225AB468500BEADC6 /* Room.swift in Sources */,
+				C99281E725ABB0DD00BEADC6 /* Image+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

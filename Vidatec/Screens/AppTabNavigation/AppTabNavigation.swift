@@ -18,8 +18,6 @@ struct AppTabNavigation: View {
         TabView(selection: $selection) {
             NavigationView {
                 PeopleView()
-                    .resignKeyboardOnDragGesture()
-                    .navigationBarTitle("People")
             }
             .tabItem {
                 peopleTabLabel

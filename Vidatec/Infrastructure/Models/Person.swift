@@ -18,14 +18,10 @@ struct Person: Codable, Identifiable {
     var avatar: String?
     var jobTitle, phone, favouriteColor, email: String?
     var firstName, lastName: String?
-}
-
-extension Person {
     
-    static var persons = [Person(id: UUID().uuidString, createdAt: Date().description, avatar: nil, jobTitle: "IOS Developer", phone: "+44 7858 453702", favouriteColor: "#882753", email: "olgusirman@icloud.com", firstName: "Olgu", lastName: "SIRMAN"),
-                          Person(id: UUID().uuidString, createdAt: Date().description, avatar: nil, jobTitle: "Visual Designer", phone: "+44 7858 453702", favouriteColor: "#882753", email: "berkersirman@gmail.com", firstName: "Berker", lastName: "SIRMAN"),
-                          Person(id: UUID().uuidString, createdAt: Date().description, avatar: nil, jobTitle: "Orthodontist", phone: "+44 7858 453702", favouriteColor: "#882753", email: "sedef@gmail.com", firstName: "Sedef", lastName: "SIRMAN")]
-    
+    var name: String {
+        "\(firstName ?? "")  \(lastName ?? "")"
+    }
 }
 
 // MARK: Person convenience initializers and mutators
@@ -34,18 +30,18 @@ extension Person {
     init(data: Data) throws {
         self = try newJSONDecoder().decode(Person.self, from: data)
     }
-
+    
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
         guard let data = json.data(using: encoding) else {
             throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
         }
         try self.init(data: data)
     }
-
+    
     init(fromURL url: URL) throws {
         try self.init(data: try Data(contentsOf: url))
     }
-
+    
     func with(
         id: String?? = nil,
         createdAt: String?? = nil,
@@ -69,11 +65,11 @@ extension Person {
             lastName: lastName ?? self.lastName
         )
     }
-
+    
     func jsonData() throws -> Data {
         return try newJSONEncoder().encode(self)
     }
-
+    
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
         return String(data: try self.jsonData(), encoding: encoding)
     }
@@ -87,23 +83,59 @@ extension Array where Element == People.Element {
     init(data: Data) throws {
         self = try newJSONDecoder().decode(People.self, from: data)
     }
-
+    
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
         guard let data = json.data(using: encoding) else {
             throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
         }
         try self.init(data: data)
     }
-
+    
     init(fromURL url: URL) throws {
         try self.init(data: try Data(contentsOf: url))
     }
-
+    
     func jsonData() throws -> Data {
         return try newJSONEncoder().encode(self)
     }
-
+    
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
         return String(data: try self.jsonData(), encoding: encoding)
     }
+}
+
+extension Person: Hashable {
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
+extension Person {
+    
+    static private let mockPerson1 = Person(id: "1",
+                                            createdAt: "2019-04-29T10:04:24.713Z",
+                                            avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/johndezember/128.jpg",
+                                            jobTitle: "Dynamic Implementation Designer",
+                                            phone: "556.662.4422 x3344",
+                                            favouriteColor: "#023a77",
+                                            email: "Benny78@gmail.com",
+                                            firstName: "Jan",
+                                            lastName: "Thompson")
+    
+    static private let mockPerson2 = Person(id: "2",
+                                            createdAt: "2019-04-28T21:05:15.710Z",
+                                            avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/lingeswaran/128.jpg",
+                                            jobTitle: "Lead Response Coordinator",
+                                            phone: "626-316-8058 x077",
+                                            favouriteColor: "#39653b",
+                                            email: "Jordon.Parker30@hotmail.com",
+                                            firstName: "Rhett",
+                                            lastName: "Carter")
+    
+    static var mockPeople = [mockPerson1,mockPerson2]
+    
 }
