@@ -9,12 +9,18 @@ import SwiftUI
 import CoreData
 
 struct RoomsView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    
+    var rooms: [Room] = Room.mockRooms
     
     var body: some View {
         List {
-            ForEach(Room.mockRooms) { item in
-                Text(item.name ?? "")
+            ForEach(rooms) { item in
+                RoomRow(item: item)
+            }
+        }.toolbar {
+            ToolbarItem(placement: .principal) {
+                Image(systemName: "house")
+                    .font(.title)
             }
         }
     }
@@ -22,6 +28,22 @@ struct RoomsView: View {
 
 struct RoomsView_Previews: PreviewProvider {
     static var previews: some View {
-        RoomsView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        RoomsView()
+    }
+}
+
+struct RoomRow: View {
+    
+    var item: Room
+    
+    var body: some View {
+        HStack {
+            Text(item.name ?? "")
+            if item.isOccupied ?? false {
+                Spacer()
+                Image(systemName:"checkmark")
+            }
+        }
+        .font(.title2)
     }
 }
