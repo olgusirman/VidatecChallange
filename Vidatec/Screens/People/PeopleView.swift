@@ -12,7 +12,7 @@ struct PeopleView: View {
     var body: some View {
         PeopleListView(peoples: Person.mockPeople)
             .resignKeyboardOnDragGesture()
-            .navigationBarTitle("People")
+            .navigationTitle("People")
     }
     
 }

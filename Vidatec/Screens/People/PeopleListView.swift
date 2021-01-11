@@ -14,29 +14,15 @@ struct PeopleListView: View {
     @State private var searchText = ""
     @State private var selection: Person?
     
+    var searchTextTrimeed: String {
+        searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
     var filteredPersons: [Person] {
-        peoples.filter({ searchText.isEmpty ? true : $0.firstName!.contains(searchText) })
+        peoples.filter({ searchTextTrimeed.isEmpty ? true : ($0.firstName?.contains(searchTextTrimeed) ?? false ||  ($0.lastName?.contains(searchTextTrimeed)) ?? false ) })
     }
     
     var body: some View {
-        List(selection: $selection) {
-            ForEach(peoples) { person in
-                NavigationLink(
-                    destination: ProfileView(person: person),
-                    tag: person,
-                    selection: $selection
-                ) {
-                    //SmoothieRow(smoothie: smoothie)
-                    Text(person.name)
-                }
-                .tag(person)
-                //.onReceive(model.$selectedSmoothieID) { newValue in
-                //    guard let smoothieID = newValue, let smoothie = Smoothie(for: smoothieID) else { return }
-                //    selection = smoothie
-                //}
-            }
-        }
-        
         ScrollView {
             LazyVStack (alignment: .leading) {
                 SearchBar(text: $searchText)
@@ -44,19 +30,33 @@ struct PeopleListView: View {
                 if filteredPersons.count == 0 {
                     Text("We couldn't find \(searchText) in here. :]")
                 } else {
-                    ForEach(filteredPersons) { item in
-                        Text(item.firstName ?? "")
-                        Divider()
+                    ForEach(filteredPersons) { person in
+                        NavigationLink(
+                            destination: ProfileView(person: person),
+                            tag: person,
+                            selection: $selection
+                        ) {
+                            PersonRow(person: person)
+                                .foregroundColor(.primary)
+                        }
+                        .tag(person)
                     }
                 }
                 
-            }.padding([.horizontal])
+            }
+            .padding([.horizontal])
         }
     }
 }
 
 struct PeopleListView_Previews: PreviewProvider {
     static var previews: some View {
-        PeopleListView(peoples: Person.mockPeople)
+        ForEach([ColorScheme.light, .dark], id: \.self) { scheme in
+            NavigationView {
+                PeopleListView(peoples: Person.mockPeople)
+                    .navigationTitle("Smoothies")
+            }
+            .preferredColorScheme(scheme)
+        }
     }
 }
