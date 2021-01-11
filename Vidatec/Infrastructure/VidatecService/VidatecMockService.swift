@@ -34,7 +34,7 @@ public class VidatecMockService: VidatecService {
             .eraseToAnyPublisher()
     }
     
-    override func getPeoples() -> AnyPublisher<[People], VidatecService.Error> {
+    override func getPeoples() -> AnyPublisher<[Person], VidatecService.Error> {
         return Just(stubbedResponse("people"))
             .tryMap { data in
                 if let data = data {
@@ -43,7 +43,7 @@ public class VidatecMockService: VidatecService {
                     throw VidatecService.Error.stubData
                 }
             }
-            .decode(type: [People].self, decoder: self.decoder)
+            .decode(type: [Person].self, decoder: self.decoder)
             .mapError { error in
                 switch error {
                 case is DecodingError:

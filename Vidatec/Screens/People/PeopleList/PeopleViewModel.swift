@@ -10,14 +10,16 @@ import Combine
 
 final class PeopleViewModel: ObservableObject {
     
-    @Published var isSearching = false
     @Published var searchedPeopleName = ""
-    @Published var repositories: [Person] = [] {
-        didSet {
-            isSearching = false
-        }
+    @Published var peoples: [Person] = []
+    
+    var searchTextTrimeed: String {
+        searchedPeopleName.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
+    var filteredPeople: [Person] {
+        peoples.filter({ searchTextTrimeed.isEmpty ? true : ($0.firstName?.contains(searchTextTrimeed) ?? false ||  ($0.lastName?.contains(searchTextTrimeed)) ?? false ) })
+    }
     
     private var subscriptions = Set<AnyCancellable>()
     private let debounceTime: Double = 0.4
@@ -35,35 +37,22 @@ final class PeopleViewModel: ObservableObject {
             .debounce(for: .seconds(debounceTime), scheduler: DispatchQueue.main)
             .removeDuplicates()
             .filter { !$0.isEmpty }
-            .map({ [weak self] (text) -> String in
-                //self?.cleanPage()
-                return text
+            .map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })
+            .map({ [weak self] searchtedText in
+                return (self?.peoples.filter({ searchtedText.isEmpty ? true : ($0.firstName?.contains(searchtedText) ?? false ||  ($0.lastName?.contains(searchtedText)) ?? false ) }) ?? [])
             })
-        
-        
-        //            .map({ [weak self] text in
-        //                if text.isEmpty {
-        //                    self?.isSearching = false
-        //                } else {
-        //                    self?.isSearching = true
-        //                }
-        //                return text
-        //            })
-        //            .compactMap({ [weak self] in GetRepositoriesRequestModel(query: $0, page: self?.pageCount ?? 1, sort: self?.sortType ?? .stars) })
-        //            .flatMap({ [unowned self] in self.fetchRepositories(request: $0) })
-        //            .replaceError(with: [])
-        //            .receive(on: DispatchQueue.main)
-        //            .assign(to: \.repositories, on: self)
-        //            .store(in: &subscriptions)
-        
+            .assign(to: \.peoples, on: self)
+            .store(in: &subscriptions)
+    
     }
     
-//    private func fetchPeople() -> AnyPublisher<[People], Never> {
-        
-//        service.getRepositories()
-//            .map({ $0.items })
-//            .replaceError(with: [])
-//            .eraseToAnyPublisher()
-//    }
+    func fetchPeople() {
+        service.getPeoples()
+            .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
+            .print()
+            .assign(to: \.peoples, on: self)
+            .store(in: &subscriptions)
+    }
     
 }

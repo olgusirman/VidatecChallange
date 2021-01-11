@@ -9,13 +9,13 @@ import SwiftUI
 
 struct PeopleListView: View {
     
+    @Binding var searchPeopleText: String
     var peoples: [Person]
     
-    @State private var searchText = ""
     @State private var selection: Person?
     
     var searchTextTrimeed: String {
-        searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        searchPeopleText.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     var filteredPersons: [Person] {
@@ -25,10 +25,10 @@ struct PeopleListView: View {
     var body: some View {
         ScrollView {
             LazyVStack (alignment: .leading) {
-                SearchBar(text: $searchText)
+                SearchBar(text: $searchPeopleText)
                 
                 if filteredPersons.count == 0 {
-                    Text("We couldn't find \(searchText) in here. :]")
+                    Text("We couldn't find \(searchPeopleText) in here. :]")
                 } else {
                     ForEach(filteredPersons) { person in
                         NavigationLink(
@@ -53,8 +53,9 @@ struct PeopleListView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach([ColorScheme.light, .dark], id: \.self) { scheme in
             NavigationView {
-                PeopleListView(peoples: Person.mockPeople)
-                    .navigationTitle("Smoothies")
+                PeopleListView(searchPeopleText: .constant("Jon"),
+                               peoples: Person.mockPeople)
+                    .navigationTitle("People")
             }
             .preferredColorScheme(scheme)
         }

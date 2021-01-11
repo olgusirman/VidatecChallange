@@ -3,7 +3,7 @@ import Combine
 
 protocol VidatecServiceType {
     func getRooms() -> AnyPublisher<[Room], VidatecService.Error>
-    func getPeoples() -> AnyPublisher<[People], VidatecService.Error>
+    func getPeoples() -> AnyPublisher<[Person], VidatecService.Error>
 }
 
 public class VidatecService: VidatecServiceType {
@@ -64,7 +64,7 @@ public class VidatecService: VidatecServiceType {
         
         private var getRoomsComponent: URLComponents {
             var components = URLComponents()
-            components.scheme = "https"
+            components.scheme = "http"
             components.host = VidatecService.baseHost
             components.path = "/rooms"
             return components
@@ -72,7 +72,7 @@ public class VidatecService: VidatecServiceType {
         
         private var getPeopleComponent: URLComponents {
             var components = URLComponents()
-            components.scheme = "https"
+            components.scheme = "http"
             components.host = VidatecService.baseHost
             components.path = "/people"
             return components
@@ -84,7 +84,7 @@ public class VidatecService: VidatecServiceType {
         executeRequest(url: VidatecService.EndPoint.getRooms.url)
     }
     
-    func getPeoples() -> AnyPublisher<[People], VidatecService.Error> {
+    func getPeoples() -> AnyPublisher<[Person], VidatecService.Error> {
         executeRequest(url: VidatecService.EndPoint.getPeoples.url)
     }
 }

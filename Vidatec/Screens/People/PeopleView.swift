@@ -9,10 +9,16 @@ import SwiftUI
 
 struct PeopleView: View {
     
+    @StateObject var viewModel = PeopleViewModel()
+    
     var body: some View {
-        PeopleListView(peoples: Person.mockPeople)
+        PeopleListView(
+            searchPeopleText: $viewModel.searchedPeopleName,
+            peoples: viewModel.peoples)
             .resignKeyboardOnDragGesture()
-            .navigationTitle("People")
+            .navigationTitle("People").onAppear(perform: {
+                viewModel.fetchPeople()
+            })
     }
     
 }
