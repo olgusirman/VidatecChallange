@@ -12,18 +12,12 @@ struct PersonRow: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "person")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 100, height: 100)
+            UserImage(imageUrlString: person.avatar ?? "")
+                .frame(width: 50, height: 50)
                 .clipShape(Circle())
-                .clipped()
-                .overlay(Circle()
-                            .stroke(lineWidth: 2))
-                .shadow(color: Color.black.opacity(0.25), radius: 10, x: 0, y: 5)
-                .padding()
-                .accessibility(hidden: true)
-
+                .aspectRatio(contentMode: .fill)
+                .shadow(color: .gray, radius: 0.5, x: 1, y: 1)
+        
             VStack(alignment: .leading) {
                 Text(person.name)
                     .font(.headline)

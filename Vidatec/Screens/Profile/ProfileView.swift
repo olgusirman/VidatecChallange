@@ -28,23 +28,18 @@ struct ProfileView: View {
     var profileView: some View {
         ScrollView {
             VStack {
-                Image(systemName: "person")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 200, height: 200)
+                UserImage(imageUrlString: person.avatar ?? "")
+                    .frame(width: 150, height: 150)
                     .clipShape(Circle())
-                    .clipped()
-                    .overlay(Circle()
-                                .stroke(lineWidth: 4))
-                    .shadow(color: Color.black.opacity(0.25), radius: 10, x: 0, y: 5)
+                    .aspectRatio(contentMode: .fill)
+                    .shadow(color: .gray, radius: 0.5, x: 1, y: 1)
                     .padding()
-                
                 VStack {
                     Text(person.jobTitle ?? "")
                         .font(.title3)
                     Link(person.email ?? "", destination: URL(string: "mailto:\(person.email ?? "")")!)
                     Circle()
-                        .frame(width: 100, height: 100, alignment: .center)
+                        .frame(width: 50, height: 50)
                         .foregroundColor(Color(hex: person.favouriteColor ?? ""))
                 }
                 Spacer()
