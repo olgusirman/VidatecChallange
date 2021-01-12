@@ -14,9 +14,10 @@ struct PeopleView: View {
     var body: some View {
         PeopleListView(
             searchPeopleText: $viewModel.searchedPeopleName,
-            peoples: viewModel.peoples)
+            peoples: viewModel.filteredPeople)
             .resignKeyboardOnDragGesture()
-            .navigationTitle("People").onAppear(perform: {
+            .navigationTitle("People")
+            .onAppear(perform: {
                 viewModel.fetchPeople()
             })
     }

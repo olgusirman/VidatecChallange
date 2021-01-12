@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C91D185E25AD2E0B002C41D8 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D185D25AD2E0B002C41D8 /* URL+.swift */; };
 		C91D403C25AA5EDA00045F95 /* VidatecApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D403B25AA5EDA00045F95 /* VidatecApp.swift */; };
 		C91D403E25AA5EDA00045F95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D403D25AA5EDA00045F95 /* ContentView.swift */; };
 		C91D404025AA5EDB00045F95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91D403F25AA5EDB00045F95 /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C91D185D25AD2E0B002C41D8 /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		C91D403825AA5EDA00045F95 /* Vidatec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vidatec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91D403B25AA5EDA00045F95 /* VidatecApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VidatecApp.swift; sourceTree = "<group>"; };
 		C91D403D25AA5EDA00045F95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -233,8 +235,9 @@
 		C992815C25AB3C5500BEADC6 /* People */ = {
 			isa = PBXGroup;
 			children = (
-				C99A3C0A25AD10DF00E18B34 /* PeopleList */,
 				C992815E25AB3C7100BEADC6 /* PeopleView.swift */,
+				C99281EB25ABB3FF00BEADC6 /* PeopleListView.swift */,
+				C99A3BF025AD096500E18B34 /* PeopleViewModel.swift */,
 				C99A3BE325ACFA3200E18B34 /* PersonRow.swift */,
 			);
 			path = People;
@@ -293,6 +296,7 @@
 				C99281CC25AB90CD00BEADC6 /* Color+.swift */,
 				C99281D125AB90DE00BEADC6 /* CGFloat+.swift */,
 				C99281E625ABB0DD00BEADC6 /* Image+.swift */,
+				C91D185D25AD2E0B002C41D8 /* URL+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,15 +318,6 @@
 				C99281E125ABAAFB00BEADC6 /* ProfileView.swift */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		C99A3C0A25AD10DF00E18B34 /* PeopleList */ = {
-			isa = PBXGroup;
-			children = (
-				C99281EB25ABB3FF00BEADC6 /* PeopleListView.swift */,
-				C99A3BF025AD096500E18B34 /* PeopleViewModel.swift */,
-			);
-			path = PeopleList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +480,7 @@
 				C992815525AB3C2D00BEADC6 /* AppTabNavigation.swift in Sources */,
 				C992815F25AB3C7100BEADC6 /* PeopleView.swift in Sources */,
 				C99281EC25ABB3FF00BEADC6 /* PeopleListView.swift in Sources */,
+				C91D185E25AD2E0B002C41D8 /* URL+.swift in Sources */,
 				C99281E225ABAAFB00BEADC6 /* ProfileView.swift in Sources */,
 				C992819225AB468500BEADC6 /* Room.swift in Sources */,
 				C99281E725ABB0DD00BEADC6 /* Image+.swift in Sources */,

@@ -67,6 +67,8 @@ public class VidatecService: VidatecServiceType {
             components.scheme = "http"
             components.host = VidatecService.baseHost
             components.path = "/rooms"
+            components.query = ""
+            components.queryItems = []
             return components
         }
         
@@ -75,17 +77,22 @@ public class VidatecService: VidatecServiceType {
             components.scheme = "http"
             components.host = VidatecService.baseHost
             components.path = "/people"
+            components.query = ""
+            components.queryItems = []
             return components
         }
         
     }
     
     func getRooms() -> AnyPublisher<[Room], VidatecService.Error> {
-        executeRequest(url: VidatecService.EndPoint.getRooms.url)
+        executeRequest(url: VidatecService.EndPoint.getRooms.url.absoluteURL)
     }
     
     func getPeoples() -> AnyPublisher<[Person], VidatecService.Error> {
-        executeRequest(url: VidatecService.EndPoint.getPeoples.url)
+//        executeRequest(url: VidatecService.EndPoint.getPeoples.url)
+//        executeRequest(urlRequest: URLRequest(url: VidatecService.EndPoint.getPeoples.url))
+        executeRequest(url: URL(staticString: "http://5cc736f4ae1431001472e333.mockapi.io/api/v1/people"))
+
     }
 }
 

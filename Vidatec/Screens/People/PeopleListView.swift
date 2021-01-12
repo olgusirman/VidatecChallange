@@ -14,23 +14,15 @@ struct PeopleListView: View {
     
     @State private var selection: Person?
     
-    var searchTextTrimeed: String {
-        searchPeopleText.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-    
-    var filteredPersons: [Person] {
-        peoples.filter({ searchTextTrimeed.isEmpty ? true : ($0.firstName?.contains(searchTextTrimeed) ?? false ||  ($0.lastName?.contains(searchTextTrimeed)) ?? false ) })
-    }
-    
     var body: some View {
         ScrollView {
             LazyVStack (alignment: .leading) {
                 SearchBar(text: $searchPeopleText)
                 
-                if filteredPersons.count == 0 {
+                if peoples.count == 0 {
                     Text("We couldn't find \(searchPeopleText) in here. :]")
                 } else {
-                    ForEach(filteredPersons) { person in
+                    ForEach(peoples) { person in
                         NavigationLink(
                             destination: ProfileView(person: person),
                             tag: person,
