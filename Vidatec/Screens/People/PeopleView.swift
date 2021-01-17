@@ -18,7 +18,7 @@ struct PeopleView: View {
             .resignKeyboardOnDragGesture()
             .navigationTitle("People")
             .navigationBarItems(trailing: trailingBarRefreshButton)
-            .overlay(StatusOverlay(viewModel: viewModel))
+            .overlay(PeopleStatusOverlay(viewModel: viewModel))
             .onAppear(perform: {
                 viewModel.loadIfNeeded()
             })
@@ -34,7 +34,7 @@ struct PeopleView: View {
     
 }
 
-struct StatusOverlay: View {
+struct PeopleStatusOverlay: View {
     
     @ObservedObject var viewModel: PeopleViewModel
     

@@ -85,7 +85,8 @@ public class VidatecService: VidatecServiceType {
     }
     
     func getRooms() -> AnyPublisher<[Room], VidatecService.Error> {
-        executeRequest(url: VidatecService.EndPoint.getRooms.url.absoluteURL)
+//        executeRequest(url: VidatecService.EndPoint.getRooms.url.absoluteURL)
+        executeRequest(url: URL(staticString: "http://5cc736f4ae1431001472e333.mockapi.io/api/v1/rooms"))
     }
     
     func getPeoples() -> AnyPublisher<[Person], VidatecService.Error> {

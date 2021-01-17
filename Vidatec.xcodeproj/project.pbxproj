@@ -16,6 +16,7 @@
 		C91D404825AA5EDB00045F95 /* Vidatec.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91D404625AA5EDB00045F95 /* Vidatec.xcdatamodeld */; };
 		C91D405325AA5EDB00045F95 /* VidatecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D405225AA5EDB00045F95 /* VidatecTests.swift */; };
 		C91D405E25AA5EDB00045F95 /* VidatecUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D405D25AA5EDB00045F95 /* VidatecUITests.swift */; };
+		C98C093325B4FF1C009A86AC /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C093225B4FF1C009A86AC /* RoomsViewModel.swift */; };
 		C992815525AB3C2D00BEADC6 /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992815425AB3C2D00BEADC6 /* AppTabNavigation.swift */; };
 		C992815F25AB3C7100BEADC6 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992815E25AB3C7100BEADC6 /* PeopleView.swift */; };
 		C992816725AB3CA600BEADC6 /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992816625AB3CA600BEADC6 /* RoomsView.swift */; };
@@ -77,6 +78,7 @@
 		C91D405925AA5EDB00045F95 /* VidatecUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VidatecUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91D405D25AA5EDB00045F95 /* VidatecUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VidatecUITests.swift; sourceTree = "<group>"; };
 		C91D405F25AA5EDB00045F95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C98C093225B4FF1C009A86AC /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
 		C992815425AB3C2D00BEADC6 /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
 		C992815E25AB3C7100BEADC6 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		C992816625AB3CA600BEADC6 /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				C992816625AB3CA600BEADC6 /* RoomsView.swift */,
+				C98C093225B4FF1C009A86AC /* RoomsViewModel.swift */,
 			);
 			path = Rooms;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				C992816C25AB3D9A00BEADC6 /* AppSidebarNavigation.swift in Sources */,
 				C91D404825AA5EDB00045F95 /* Vidatec.xcdatamodeld in Sources */,
 				C91D404525AA5EDB00045F95 /* Persistence.swift in Sources */,
+				C98C093325B4FF1C009A86AC /* RoomsViewModel.swift in Sources */,
 				C99281D225AB90DE00BEADC6 /* CGFloat+.swift in Sources */,
 				C99281AF25AB4BB100BEADC6 /* SearchBar.swift in Sources */,
 				C99281DA25AB9CB100BEADC6 /* VidatecMockService.swift in Sources */,
