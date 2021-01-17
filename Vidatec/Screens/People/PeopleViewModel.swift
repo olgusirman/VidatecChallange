@@ -15,12 +15,28 @@ protocol PeopleViewModelInputType {
 protocol PeopleViewModelOutputType {
     var peoples: [Person] { get }
     var filteredPeople: [Person] { get }
+    var personsDataTask: AnyPublisher<[Person], VidatecService.Error> { get }
     func fetchPeople()
 }
 
 protocol PeopleViewModelType: PeopleViewModelInputType, PeopleViewModelOutputType {}
 
 final class PeopleViewModel: ObservableObject, PeopleViewModelType {
+    
+    @Published var state = State.ready
+        
+    enum State {
+        case ready
+        case loading(Cancellable)
+        case loaded
+        case error(Error)
+    }
+    
+    var personsDataTask: AnyPublisher<[Person], VidatecService.Error> {
+        return service.getPeoples()
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
     
     // MARK: - PeopleViewModelInputType
     @Published var searchedPeopleName = ""
@@ -29,6 +45,7 @@ final class PeopleViewModel: ObservableObject, PeopleViewModelType {
     @Published fileprivate(set) var peoples: [Person] = []
     @Published fileprivate(set) var filteredPeople: [Person] = []
     
+    /// Fetches 
     func fetchPeople() {
         service.getPeoples()
             .replaceError(with: [])
@@ -52,6 +69,35 @@ final class PeopleViewModel: ObservableObject, PeopleViewModelType {
     
     // MARK: - Helpers
     
+    func load() {
+        assert(Thread.isMainThread)
+        self.state = .loading(self.personsDataTask
+                                .sink(
+            receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    break
+                case let .failure(error):
+                    self.state = .error(error)
+                    self.peoples = []
+                    self.filteredPeople = []
+                }
+            },
+            receiveValue: { value in
+                self.state = .loaded
+                self.searchedPeopleName = ""
+                self.peoples = value
+                self.filteredPeople = value
+            }
+        ))
+    }
+    
+    func loadIfNeeded() {
+        assert(Thread.isMainThread)
+        guard case .ready = self.state else { return }
+        self.load()
+    }
+    
     private func bindPeopleSearch() {
         
         let searchedName = $searchedPeopleName
@@ -59,14 +105,17 @@ final class PeopleViewModel: ObservableObject, PeopleViewModelType {
             .debounce(for: .seconds(debounceTime), scheduler: DispatchQueue.main)
             .removeDuplicates()
             .map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })
-            .share()
+            //.share() we can use this share operator if we need any binding, this subscribers only once
         
-        //you can  use this searchName if you need any other binding
         searchedName
-            .compactMap({ [weak self] searchtedText in
-                return (self?.peoples.filter({ searchtedText.isEmpty ? true : ($0.firstName?.lowercased().localizedCaseInsensitiveContains(searchtedText)) ?? false || ($0.lastName?.lowercased().localizedCaseInsensitiveContains(searchtedText)) ?? false }) ?? [])
+            .compactMap({ [weak self] searchedText in
+                return (self?.peoples.filter({ searchedText.isEmpty ? true : self?.searchPerson($0, searchedText) ?? false }) ?? [])
             })
             .assign(to: \.filteredPeople, on: self)
             .store(in: &subscriptions)
+    }
+    
+    private func searchPerson(_ searchedPerson: Person, _ searchedText: String) -> Bool {
+        return (searchedPerson.firstName?.lowercased().localizedCaseInsensitiveContains(searchedText)) ?? false || (searchedPerson.lastName?.lowercased().localizedCaseInsensitiveContains(searchedText)) ?? false || (searchedPerson.name.lowercased().localizedCaseInsensitiveContains(searchedText))
     }
 }

@@ -17,11 +17,54 @@ struct PeopleView: View {
             peoples: viewModel.filteredPeople)
             .resignKeyboardOnDragGesture()
             .navigationTitle("People")
+            .navigationBarItems(trailing: trailingBarRefreshButton)
+            .overlay(StatusOverlay(viewModel: viewModel))
             .onAppear(perform: {
-                viewModel.fetchPeople()
+                viewModel.loadIfNeeded()
             })
     }
     
+    private var trailingBarRefreshButton: some View {
+        Button(action: {
+            viewModel.load()
+        }) {
+            Image(systemName: "arrow.clockwise")
+        }
+    }
+    
+}
+
+struct StatusOverlay: View {
+    
+    @ObservedObject var viewModel: PeopleViewModel
+    
+    var body: some View {
+        
+        switch viewModel.state {
+        case .ready:
+            return AnyView(EmptyView())
+        case .loading:
+            return AnyView(ProgressView("Loading...")
+                            .padding()
+                            .background(Blur())
+                            .cornerRadius(14))
+        case .loaded:
+            return AnyView(EmptyView())
+        case let .error(error):
+            return AnyView(
+                VStack {
+                    Text(error.localizedDescription)
+                        .frame(maxWidth: 300)
+                    Button("Retry") {
+                        self.viewModel.load() // TODO: Use throttle operator for this button
+                    }
+                }
+                .padding()
+                .background(Blur())
+                .cornerRadius(14)
+            )
+        }
+    }
 }
 
 struct PeopleView_Previews: PreviewProvider {
