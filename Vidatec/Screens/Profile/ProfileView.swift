@@ -34,7 +34,7 @@ struct ProfileView: View {
                     .aspectRatio(contentMode: .fill)
                     .shadow(color: .gray, radius: 0.5, x: 1, y: 1)
                     .padding()
-                VStack {
+                VStack (spacing: 20) {
                     Text(person.jobTitle ?? "")
                         .font(.title3)
                     Link(person.email ?? "", destination: URL(string: "mailto:\(person.email ?? "")")!)
