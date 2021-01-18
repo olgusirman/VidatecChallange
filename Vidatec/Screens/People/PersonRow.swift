@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import VidatecServiceManager
 
 struct PersonRow: View {
     var person: Person
