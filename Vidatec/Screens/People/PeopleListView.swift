@@ -18,9 +18,11 @@ struct PeopleListView: View {
         ScrollView {
             LazyVStack (alignment: .leading) {
                 SearchBar(text: $searchPeopleText)
+                    .accessibility(hint: Text("People search \(searchPeopleText)"))
                 
                 if peoples.count == 0 {
                     Text("We couldn't find \(searchPeopleText) in here. :]")
+                        .accessibility(hint: Text("We couldn't find \(searchPeopleText) in here. :]"))
                 } else {
                     ForEach(peoples) { person in
                         NavigationLink(

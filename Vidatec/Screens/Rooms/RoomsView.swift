@@ -90,9 +90,11 @@ struct RoomRow: View {
     var body: some View {
         HStack {
             Text(item.name ?? "")
+                .accessibility(hint: Text("Room name"))
             if item.isOccupied ?? false {
                 Spacer()
                 Image(systemName:"checkmark")
+                    .accessibility(hint: Text("Is Occupied"))
             }
         }
         .font(.title2)

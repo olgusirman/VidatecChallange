@@ -17,15 +17,18 @@ struct PersonRow: View {
                 .clipShape(Circle())
                 .aspectRatio(contentMode: .fill)
                 .shadow(color: .gray, radius: 0.5, x: 1, y: 1)
+                .accessibility(hint: Text("User Image"))
+
         
             VStack(alignment: .leading) {
                 Text(person.name)
                     .font(.headline)
                     .lineLimit(1)
+                    .accessibility(hint: Text("Person name"))
                 
                 Text(person.jobTitle ?? "")
                     .foregroundColor(.secondary)
-                    .accessibility(label: Text("jobTitle"))
+                    .accessibility(label: Text("Job Title"))
             }
             Spacer(minLength: 0)
         }

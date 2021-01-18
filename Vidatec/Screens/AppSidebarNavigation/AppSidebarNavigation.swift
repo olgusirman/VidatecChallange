@@ -22,11 +22,13 @@ struct AppSidebarNavigation: View {
                 Label("People", systemImage: "list.bullet")
             }
             .tag(NavigationItem.people)
-            
+            .accessibility(hint: Text("People Sidebar Navigation Button"))
+
             NavigationLink(destination: RoomsView(), tag: NavigationItem.rooms, selection: $selection) {
                 Label("Rooms", systemImage: "heart")
             }
             .tag(NavigationItem.rooms)
+            .accessibility(hint: Text("Rooms Sidebar Navigation Button"))
         }
         .listStyle(SidebarListStyle())
     }
