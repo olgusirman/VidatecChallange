@@ -94,7 +94,7 @@ struct RoomRow: View {
             if item.isOccupied ?? false {
                 Spacer()
                 Image(systemName:"checkmark")
-                    .accessibility(hint: Text("Is Occupied"))
+                    .accessibility(hint: item.isOccupied ?? false ? Text("Is Occupied") : Text("Is not Occupied"))
             }
         }
         .font(.title2)
