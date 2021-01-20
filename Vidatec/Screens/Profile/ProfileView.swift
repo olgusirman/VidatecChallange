@@ -38,7 +38,13 @@ struct ProfileView: View {
                 VStack (spacing: 20) {
                     Text(person.jobTitle ?? "")
                         .font(.title3)
-                    Link(person.email ?? "", destination: URL(string: "mailto:\(person.email ?? "")")!)
+                        .accessibility(label: Text("\(person.jobTitle ?? "Job title" )"))
+                    
+                    if person.isEmailValid {
+                        Link(person.email ?? "", destination: person.validatedEmail!)
+                    } else {
+                        Text(person.email ?? "")
+                    }
                     Circle()
                         .frame(width: 50, height: 50)
                         .foregroundColor(Color(hex: person.favouriteColor ?? ""))
@@ -63,7 +69,11 @@ struct ProfileView: View {
                 VStack (alignment: .leading) {
                     Text(person.jobTitle ?? "")
                         .font(.title3)
-                    Link(person.email ?? "", destination: URL(string: "mailto:\(person.email ?? "")")!)
+                    if person.isEmailValid {
+                        Link(person.email ?? "", destination: person.validatedEmail!)
+                    } else {
+                        Text(person.email ?? "")
+                    }
                     Circle()
                         .frame(width: 100, height: 100, alignment: .center)
                         .foregroundColor(Color(hex: person.favouriteColor ?? ""))
