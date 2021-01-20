@@ -8,10 +8,10 @@
 import SwiftUI
 import VidatecServiceManager
 
-struct PersonRow: View {
+public struct PersonRow: View {
     var person: Person
     
-    var body: some View {
+    public var body: some View {
         HStack {
             UserImage(imageUrlString: person.avatar ?? "")
                 .frame(width: 50, height: 50)

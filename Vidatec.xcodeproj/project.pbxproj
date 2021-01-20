@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C901DFF325B79C8C004EA756 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C901DFF225B79C8C004EA756 /* SnapshotTesting */; };
 		C91D185E25AD2E0B002C41D8 /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D185D25AD2E0B002C41D8 /* URL+.swift */; };
 		C91D403C25AA5EDA00045F95 /* VidatecApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D403B25AA5EDA00045F95 /* VidatecApp.swift */; };
 		C91D403E25AA5EDA00045F95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91D403D25AA5EDA00045F95 /* ContentView.swift */; };
@@ -115,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C901DFF325B79C8C004EA756 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +199,6 @@
 			children = (
 				C99281AD25AB4BAA00BEADC6 /* Controls */,
 				C99281A425AB4AD000BEADC6 /* Extensions */,
-				C992818925AB468500BEADC6 /* Models */,
-				C992818C25AB468500BEADC6 /* VidatecService */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -249,28 +249,6 @@
 				C98C093225B4FF1C009A86AC /* RoomsViewModel.swift */,
 			);
 			path = Rooms;
-			sourceTree = "<group>";
-		};
-		C992818925AB468500BEADC6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C992819825AB482000BEADC6 /* Helper */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		C992818C25AB468500BEADC6 /* VidatecService */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VidatecService;
-			sourceTree = "<group>";
-		};
-		C992819825AB482000BEADC6 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		C99281A425AB4AD000BEADC6 /* Extensions */ = {
@@ -362,6 +340,9 @@
 				C91D405B25AA5EDB00045F95 /* PBXTargetDependency */,
 			);
 			name = VidatecUITests;
+			packageProductDependencies = (
+				C901DFF225B79C8C004EA756 /* SnapshotTesting */,
+			);
 			productName = VidatecUITests;
 			productReference = C91D405925AA5EDB00045F95 /* VidatecUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -399,6 +380,7 @@
 			mainGroup = C91D402F25AA5EDA00045F95;
 			packageReferences = (
 				C99A3BF525AD0A9300E18B34 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C901DFF125B79C8C004EA756 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = C91D403925AA5EDA00045F95 /* Products */;
 			projectDirPath = "";
@@ -787,6 +769,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C901DFF125B79C8C004EA756 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.2;
+			};
+		};
 		C99A3BF525AD0A9300E18B34 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -798,6 +788,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C901DFF225B79C8C004EA756 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C901DFF125B79C8C004EA756 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
 		C98C098A25B647BF009A86AC /* VidatecServiceManager */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = VidatecServiceManager;
